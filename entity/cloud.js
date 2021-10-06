@@ -8,7 +8,8 @@ class Cloud {
 
         this.maxX = maxX;
         this.img = img;
-        this.hp = 500;
+        this.maxHp = 500;
+        this.hp = this.maxHp;
     }
 
     update() {
@@ -23,6 +24,14 @@ class Cloud {
 
     draw(ctx) {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+        if (this.hp < this.maxHp) {
+            let hpBarWidth = 50;
+            let hpBarOffset = 50 * (this.hp / this.maxHp);
+            ctx.fillStyle = 'green';
+            ctx.fillRect(this.x + this.width / 2 - hpBarWidth / 2, this.y - 10, hpBarOffset, 10);
+            ctx.fillStyle = 'red';
+            ctx.fillRect(this.x + this.width / 2 - hpBarWidth / 2 + hpBarOffset, this.y - 10, hpBarWidth - hpBarOffset, 10);
+        }
     }
 
     collides(x, y) {
