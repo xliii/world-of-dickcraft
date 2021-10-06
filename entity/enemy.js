@@ -1,4 +1,4 @@
-class Cloud {
+class Enemy {
     constructor(x, y, vx, img, maxX) {
         this.width = 250;
         this.height = 100;

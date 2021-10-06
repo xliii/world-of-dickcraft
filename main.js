@@ -3,20 +3,17 @@ const ctx = canvas.getContext("2d");
 canvas.width = 1600;
 canvas.height = 800;
 
-let level1 = new Level(1, "Vanilla", ['cloud1', 'cloud2', 'cloud3']);
+let level1 = new Level(1, "Vanilla", ['cloud1', 'cloud2', 'cloud3'], 2);
 let levels = [level1];
 
-const cloudSprites = level1.enemies;
-const bg = level1.background;
-const character = level1.character;
+let level = level1;
 
 let particles = [];
 const maxParticles = 1000;
 const gravity = 0.12;
 const color = "#ffff00";
 const DEBUG = false;
-let clouds = [];
-const maxClouds = 2;
+let enemies = [];
 
 let score = 0;
 
@@ -68,7 +65,7 @@ function spawn(n = 1) {
 function clearScreen() {
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(level.background, 0, 0, canvas.width, canvas.height);
 }
 
 function drawUI() {
@@ -83,53 +80,53 @@ function debug() {
 
     ctx.font = '10px Arial';
     ctx.fillText(particles.length.toString(), 10, 10);
-    ctx.fillText(clouds.length.toString(), 10, 20);
+    ctx.fillText(enemies.length.toString(), 10, 20);
 }
 
 function updateParticles() {
     ctx.fillStyle = color;
     for (let i = 0; i < particles.length; i++) {
         let particle = particles[i];
-        if (particle.update(clouds)) {
+        if (particle.update(enemies)) {
             particles.splice(particles.indexOf(particle), 1);
         }
         particle.draw(ctx);
     }
 }
 
-function spawnCloud() {
-    let model = cloudSprites[Math.floor(Math.random() * cloudSprites.length)];
+function spawnEnemy() {
+    let model = level.randomEnemySprite();
     let left = Math.random() < 0.5;
     let y = Math.random() * canvas.height / 10 + canvas.height / 7;
     let x = left ? -200 : canvas.width;
     let v = Math.random() * 1.25 + 0.5;
     let vx = left ? v : -v;
-    clouds.push(new Cloud(x, y, vx, model, canvas.width));
+    enemies.push(new Enemy(x, y, vx, model, canvas.width));
 }
 
-function updateClouds() {
-    for (let i = 0; i < clouds.length; i++) {
-        let cloud = clouds[i];
-        if (cloud.update()) {
-            clouds.splice(clouds.indexOf(cloud), 1);
+function updateEnemies() {
+    for (let i = 0; i < enemies.length; i++) {
+        let enemy = enemies[i];
+        if (enemy.update()) {
+            enemies.splice(enemies.indexOf(enemy), 1);
         }
-        cloud.draw(ctx);
+        enemy.draw(ctx);
     }
 
-    if (clouds.length < maxClouds) {
+    if (enemies.length < level.maxEnemies) {
         if (Math.random() < 0.005) {
-            spawnCloud();
+            spawnEnemy();
         }
     }
 }
 
 function updateDick() {
-    ctx.drawImage(character, mouse.x - canvas.width / 16.5, canvas.height / 6 * 5, 200, 150);
+    ctx.drawImage(level.character, mouse.x - canvas.width / 16.5, canvas.height / 6 * 5, 200, 150);
 }
 
 function updateScore() {
-    if (score >= 2) {
-        clouds = [];
+    if (score >= level.targetScore) {
+        enemies = [];
         ctx.fillText("You win!", canvas.width / 2, canvas.height / 2);
     }
 }
@@ -143,7 +140,7 @@ function animate() {
 
     updateScore();
     updateDick();
-    updateClouds();
+    updateEnemies();
     updateParticles();
     drawUI();
     requestAnimationFrame(animate);

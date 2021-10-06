@@ -9,15 +9,15 @@ class Particle {
         this.maxY = maxY;
     }
 
-    update(clouds) {
+    update(enemies) {
         this.y += this.vy;
         this.x += this.vx;
 
-        for (let i = 0; i < clouds.length; i++) {
-            let cloud = clouds[i];
-            if (cloud.collides(this.x, this.y)) {
-                if (cloud.hit()) {
-                    clouds.splice(clouds.indexOf(cloud), 1);
+        for (let i = 0; i < enemies.length; i++) {
+            let enemy = enemies[i];
+            if (enemy.collides(this.x, this.y)) {
+                if (enemy.hit()) {
+                    enemies.splice(enemies.indexOf(enemy), 1);
                     score++;
                 }
                 return true;
