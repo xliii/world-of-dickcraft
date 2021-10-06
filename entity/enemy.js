@@ -8,7 +8,7 @@ class Enemy {
 
         this.maxX = maxX;
         this.img = img;
-        this.maxHp = 500;
+        this.maxHp = 100;
         this.hp = this.maxHp;
     }
 

@@ -1,38 +1,21 @@
-Levels:
+------LEVELS-------
+* TODO: Vanilla: Elwyn Forest
+* TBC: Outland peninsula
+* WotLK: Icecrown
+* TODO: Cata: Maelstrom
+* TODO: Mists: Vale of Eternal Blossoms
+* TODO: WoD: Hellfire Citadel/Blackrock Foundry
+* TODO: Legion: Panteon
+* TODO: BfA: Nyalotha
+* TODO: Shadowlands: Torghast/Nathria
 
-* Vanilla:
-Setting: Forest
-Boss: Wankaros
-
-* Burning Pissade
-Setting: Outland peninsula
-Boss: TODO: Illidan?
-
-* Wrath of the Piss King
-Setting: Icecrown
-Boss: Piss King
-
-* Peepeeclysm
-Setting: Maelstrom
-Boss: Deathwank
-
-* Mists of Pissdaria
-
-Setting: Orgrimmar Dungeon
-Boss: TODO: Garrosh
-
-* Warlords of Wankinor
-Setting: Hellfire Citadel
-Boss: TODO: Archimonde?
-
-* Jerkion
-Setting: Panteon
-Boss: TODO: Argus the Unmaker?
-
-* Battle for Onanism
-Setting: Nyalotha
-Boss: TODO: N'Zoth the Corruptor
-
-* Shadowanks
-Setting: Torghast:
-Boss: TODO: The Jailer / Sylvanas Windrunner
+------BOSSES-------
+* TODO: Vanilla: Wankaros
+* TODO: TBC: Illidan
+* TODO: WotLK: Piss King
+* TODO: Cata: Deathwank
+* TODO: Mists: Garrosh
+* TODO: WoD: Archimonde
+* TODO: Legion: Argus
+* TODO: BfA: NZoth
+* TODO: Shadowlands: Jailer/Sylvanas/Sire

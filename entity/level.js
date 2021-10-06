@@ -1,5 +1,5 @@
 class Level {
-    constructor(index, name, enemies = [], targetScore = 4, maxEnemies = 2, character="character", spawnRate = 0.005) {
+    constructor(index, name, enemies = [], targetScore = 4, maxEnemies = 2, enemyHp=100, character="character", spawnRate = 0.005) {
         this.index = index;
         this.name = name;
 

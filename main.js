@@ -4,10 +4,18 @@ canvas.width = 1600;
 canvas.height = 800;
 ctx.textAlign = "center";
 
-let level1 = new Level(1, "Vanilla", ['cloud1', 'cloud2', 'cloud3'], 1);
-let level2 = new Level(2, "Burning Pissade", ['cloud1', 'cloud2', 'cloud3'], 2);
-let gameComplete = new Level("credits", "Congratulations!", [], 0, 0, "character", 0);
-let levels = [level1, level2, gameComplete];
+let levels = [
+    new Level(1, "Vanilla", ['cloud1', 'cloud2', 'cloud3'], 1),
+    new Level(2, "Burning Pissade", ['cloud1', 'cloud2', 'cloud3'], 1),
+    new Level(3, "Wrath of the Piss King", ['cloud1', 'cloud2', 'cloud3'], 1),
+    new Level(4, "PeePeeClysm", ['cloud1', 'cloud2', 'cloud3'], 1),
+    new Level(5, "Mists of Pissdaria", ['cloud1', 'cloud2', 'cloud3'], 1),
+    new Level(6, "Warlords of Wankinor", ['cloud1', 'cloud2', 'cloud3'], 1),
+    new Level(7, "Jerkion", ['cloud1', 'cloud2', 'cloud3'], 1),
+    new Level(8, "Battle for Onanism", ['cloud1', 'cloud2', 'cloud3'], 1),
+    new Level(9, "Shadowanks", ['cloud1', 'cloud2', 'cloud3'], 1),
+    new Level("credits", "Congratulations!", [], 0, 0)
+];
 
 let level = null;
 
