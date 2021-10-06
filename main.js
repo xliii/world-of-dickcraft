@@ -43,50 +43,6 @@ window.addEventListener("mousemove", function(e) {
     mouse.y = (e.clientY - rect.top) * scaleY;
 });
 
-
-
-class Particle {
-    constructor(x, y, vx, vy) {
-        this.x = x;
-        this.y = y;
-        this.vx = vx;
-        this.vy = vy;
-        this.size = Math.random() * 0.75 + 1.5;
-    }
-
-    update() {
-        this.y += this.vy;
-        this.x += this.vx;
-
-        for (let i = 0; i < clouds.length; i++) {
-            let cloud = clouds[i];
-            if (cloud.collides(this.x, this.y)) {
-                if (cloud.hit()) {
-                    clouds.splice(clouds.indexOf(cloud), 1);
-                    score++;
-                }
-                this.delete();
-            }
-        }
-
-        if (this.y > canvas.height) {
-            this.delete();
-        }
-
-        this.vy += gravity;
-    }
-
-    delete() {
-        particles.splice(particles.indexOf(this), 1);
-    }
-
-    draw(ctx) {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
-
 let countdown = 4;
 
 function loadImage(src) {
@@ -109,7 +65,7 @@ function init() {
 function spawn(n = 1) {
     for (let i = 0; i < n; i++) {
         if (particles.length < maxParticles) {
-            let particle = new Particle(mouse.x, canvas.height / 7 * 6, Math.random() * 2 - 1, Math.random() * -2 - 9);
+            let particle = new Particle(mouse.x, canvas.height / 7 * 6, Math.random() * 2 - 1, Math.random() * -2 - 9, canvas.height);
             particles.push(particle);
         }
     }
@@ -140,7 +96,9 @@ function updateParticles() {
     ctx.fillStyle = color;
     for (let i = 0; i < particles.length; i++) {
         let particle = particles[i];
-        particle.update();
+        if (particle.update(clouds)) {
+            particles.splice(particles.indexOf(particle), 1);
+        }
         particle.draw(ctx);
     }
 }
