@@ -1,10 +1,11 @@
 class Level {
-    constructor(index, name, enemies, targetScore, maxEnemies = 2, character="character") {
+    constructor(index, name, enemies = [], targetScore = 4, maxEnemies = 2, character="character", spawnRate = 0.005) {
         this.index = index;
         this.name = name;
 
         this.targetScore = targetScore;
         this.maxEnemies = maxEnemies;
+        this.spawnRate = spawnRate;
 
         this.character = loadImage("sprites/" + character + ".png");
         this.background = loadImage("sprites/level" + this.index + "/background.png");

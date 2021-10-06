@@ -2,11 +2,14 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = 1600;
 canvas.height = 800;
+ctx.textAlign = "center";
 
-let level1 = new Level(1, "Vanilla", ['cloud1', 'cloud2', 'cloud3'], 2);
-let levels = [level1];
+let level1 = new Level(1, "Vanilla", ['cloud1', 'cloud2', 'cloud3'], 1);
+let level2 = new Level(2, "Burning Pissade", ['cloud1', 'cloud2', 'cloud3'], 2);
+let gameComplete = new Level("credits", "Congratulations!", [], 0, 0, "character", 0);
+let levels = [level1, level2, gameComplete];
 
-let level = level1;
+let level = null;
 
 let particles = [];
 const maxParticles = 1000;
@@ -49,10 +52,6 @@ function loadImage(src) {
     return img;
 }
 
-function init() {
-    animate();
-}
-
 function spawn(n = 1) {
     for (let i = 0; i < n; i++) {
         if (particles.length < maxParticles) {
@@ -71,7 +70,10 @@ function clearScreen() {
 function drawUI() {
     ctx.fillStyle = 'white';
     ctx.font = '50px Arial';
-    ctx.fillText(score.toString(), canvas.width / 2, 50);
+    ctx.fillText(level.name, canvas.width / 2, 50);
+    if (level.targetScore > 0) {
+        ctx.fillText(score + "/" + level.targetScore, canvas.width / 2, 100);
+    }
     debug();
 }
 
@@ -114,7 +116,7 @@ function updateEnemies() {
     }
 
     if (enemies.length < level.maxEnemies) {
-        if (Math.random() < 0.005) {
+        if (Math.random() < level.spawnRate) {
             spawnEnemy();
         }
     }
@@ -126,9 +128,23 @@ function updateDick() {
 
 function updateScore() {
     if (score >= level.targetScore) {
-        enemies = [];
-        ctx.fillText("You win!", canvas.width / 2, canvas.height / 2);
+        nextLevel();
     }
+}
+
+function nextLevel() {
+    let index = levels.indexOf(level);
+    if (index < levels.length - 1) {
+        level = levels[index + 1];
+        startLevel();
+    }
+}
+
+function startLevel() {
+    console.log("Start level: ", level);
+    score = 0;
+    enemies = [];
+    particles = [];
 }
 
 function animate() {
@@ -145,5 +161,7 @@ function animate() {
     drawUI();
     requestAnimationFrame(animate);
 }
+
+nextLevel();
 
 animate();
