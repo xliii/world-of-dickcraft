@@ -3,12 +3,12 @@ const ctx = canvas.getContext("2d");
 canvas.width = 1600;
 canvas.height = 800;
 
-const character = loadImage("character.png");
-const bg = loadImage("background.png");
-const cloudSprites = [];
-cloudSprites.push(loadImage("cloud1.png"));
-cloudSprites.push(loadImage("cloud2.png"));
-cloudSprites.push(loadImage("cloud3.png"));
+let level1 = new Level(1, "Vanilla", ['cloud1', 'cloud2', 'cloud3']);
+let levels = [level1];
+
+const cloudSprites = level1.enemies;
+const bg = level1.background;
+const character = level1.character;
 
 let particles = [];
 const maxParticles = 1000;
@@ -43,23 +43,17 @@ window.addEventListener("mousemove", function(e) {
     mouse.y = (e.clientY - rect.top) * scaleY;
 });
 
-let countdown = 4;
-
 function loadImage(src) {
     let img = new Image();
+    console.log("Load image:" + src);
     img.src = src;
-    img.addEventListener("load", function() {
-        init();
-    });
+    //img.addEventListener("load", imageLoaded);
 
     return img;
 }
 
 function init() {
-    countdown--;
-    if (countdown === 0) {
-        animate();
-    }
+    animate();
 }
 
 function spawn(n = 1) {
@@ -110,7 +104,6 @@ function spawnCloud() {
     let x = left ? -200 : canvas.width;
     let v = Math.random() * 1.25 + 0.5;
     let vx = left ? v : -v;
-    console.log(x);
     clouds.push(new Cloud(x, y, vx, model, canvas.width));
 }
 
@@ -134,6 +127,13 @@ function updateDick() {
     ctx.drawImage(character, mouse.x - canvas.width / 16.5, canvas.height / 6 * 5, 200, 150);
 }
 
+function updateScore() {
+    if (score >= 2) {
+        clouds = [];
+        ctx.fillText("You win!", canvas.width / 2, canvas.height / 2);
+    }
+}
+
 function animate() {
     clearScreen();
 
@@ -141,6 +141,7 @@ function animate() {
         spawn(6);
     }
 
+    updateScore();
     updateDick();
     updateClouds();
     updateParticles();
