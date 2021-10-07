@@ -1,11 +1,11 @@
 ------LEVELS-------
-* TODO: Vanilla: Elwyn Forest
+* TODO: Vanilla: Elwyn Forest (Stormwind in bg)
 * TBC: Outland peninsula
 * WotLK: Icecrown
-* TODO: Cata: Maelstrom
-* TODO: Mists: Vale of Eternal Blossoms
+* Cata: Maelstrom
+* Mists: Vale of Eternal Blossoms
 * TODO: WoD: Hellfire Citadel/Blackrock Foundry
-* TODO: Legion: Panteon
+* Legion: Panteon
 * TODO: BfA: Nyalotha
 * TODO: Shadowlands: Torghast/Nathria
 
@@ -16,6 +16,12 @@
 * TODO: Cata: Deathwank
 * TODO: Mists: Garrosh
 * TODO: WoD: Archimonde
-* TODO: Legion: Argus
+* TODO: Legion: Argus--
 * TODO: BfA: NZoth
 * TODO: Shadowlands: Jailer/Sylvanas/Sire
+
+
+MISC:
+* Prize also pisses in credits
+* Gear progression (Bfa- HoA, legendaries etc)
+* Wank vs Piss
