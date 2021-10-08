@@ -5,7 +5,7 @@ canvas.height = 800;
 ctx.textAlign = "center";
 
 let levels = [
-    new Level(1, "Vanilla", ['cloud1', 'cloud2', 'cloud3'], 1),
+    new Level(1, "Vanilla", ['cloud1', 'cloud2', 'cloud3'], 2),
     new Level(2, "Burning Pissade", ['cloud1', 'cloud2', 'cloud3'], 1),
     new Level(3, "Wrath of the Piss King", ['cloud1', 'cloud2', 'cloud3'], 1),
     new Level(4, "PeePeeClysm", ['cloud1', 'cloud2', 'cloud3'], 1),
