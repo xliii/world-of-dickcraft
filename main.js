@@ -34,14 +34,21 @@ const mouse = {
     pressed: false
 };
 
-window.addEventListener("mousedown", function() {
-    mouse.pressed = true;
-});
-
-window.addEventListener("mouseup", function() {
+function mouseup() {
     mouse.pressed = false;
-});
+}
 
+function mousedown() {
+    mouse.pressed = true;
+}
+
+window.addEventListener("mousedown", mousedown);
+
+window.addEventListener("mouseup", mouseup);
+
+window.addEventListener("touchstart", mousedown);
+window.addEventListener("touchend", mouseup);
+window.addEventListener("touchcancel", mouseup);
 window.addEventListener("mousemove", function(e) {
     let rect = canvas.getBoundingClientRect();
     let scaleX = canvas.width / rect.width;
