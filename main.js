@@ -49,14 +49,17 @@ window.addEventListener("mouseup", mouseup);
 window.addEventListener("touchstart", mousedown);
 window.addEventListener("touchend", mouseup);
 window.addEventListener("touchcancel", mouseup);
-window.addEventListener("mousemove", function(e) {
+window.addEventListener("mousemove", move);
+window.addEventListener("touchmove", move);
+
+function move(e) {
     let rect = canvas.getBoundingClientRect();
     let scaleX = canvas.width / rect.width;
     let scaleY = canvas.height / rect.height;
 
     mouse.x = (e.clientX - rect.left) * scaleX;
     mouse.y = (e.clientY - rect.top) * scaleY;
-});
+}
 
 function loadImage(src) {
     let img = new Image();
