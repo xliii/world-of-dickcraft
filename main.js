@@ -50,7 +50,12 @@ window.addEventListener("touchstart", mousedown);
 window.addEventListener("touchend", mouseup);
 window.addEventListener("touchcancel", mouseup);
 window.addEventListener("mousemove", move);
-window.addEventListener("touchmove", move);
+window.addEventListener("touchmove", touchmove);
+
+funcion touchmove(e) {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+}
 
 function move(e) {
     let rect = canvas.getBoundingClientRect();
