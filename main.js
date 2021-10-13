@@ -13,7 +13,7 @@ let levels = [
     new Level(6, "Warlords of Wankinor", ['cloud1', 'cloud2', 'cloud3'], 1),
     new Level(7, "Jerkion", ['cloud1', 'cloud2', 'cloud3'], 1),
     new Level(8, "Battle for Onanism", ['cloud1', 'cloud2', 'cloud3'], 1),
-    new Level(9, "Shadowanks", ['cloud1', 'cloud2', 'cloud3'], 1),
+    new Level(9, "Shadowanks", ['cloud1', 'cloud2', 'cloud3'], 1),  
     new Level("credits", "Congratulations!", [], 0, 0)
 ];
 
@@ -53,8 +53,10 @@ window.addEventListener("mousemove", move);
 window.addEventListener("touchmove", touchmove);
 
 function touchmove(e) {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+    e.preventDefault();
+    if (e.changedTouches.length > 0) {
+        move(e.changedTouches[0]);
+    }
 }
 
 function move(e) {
