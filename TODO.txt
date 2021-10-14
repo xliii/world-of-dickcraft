@@ -1,22 +1,11 @@
-------LEVELS-------
-* TODO: Vanilla: Elwyn Forest (Stormwind in bg)
-* TBC: Outland peninsula
-* WotLK: Icecrown
-* Cata: Maelstrom
-* Mists: Vale of Eternal Blossoms
-* TODO: WoD: Hellfire Citadel/Blackrock Foundry
-* Legion: Panteon
-* TODO: BfA: Nyalotha
-* TODO: Shadowlands: Torghast/Nathria
-
 ------BOSSES-------
 * TODO: Vanilla: Wankaros
 * TODO: TBC: Illidan
 * TODO: WotLK: Piss King
 * TODO: Cata: Deathwank
 * TODO: Mists: Garrosh
-* TODO: WoD: Archimonde
-* TODO: Legion: Argus--
+* TODO: WoD: Blackhand
+* TODO: Legion: Argus
 * TODO: BfA: NZoth
 * TODO: Shadowlands: Jailer/Sylvanas/Sire
 
