@@ -99,7 +99,7 @@ function loadImage(src) {
 function shoot(n = 1) {
     for (let i = 0; i < n; i++) {
         if (particles.length < maxParticles) {
-            let particle = new Particle(mouse.x, canvas.height / 7 * 6, Math.random() * 2 - 1, Math.random() * -2 - 9, canvas.height);
+            let particle = new Particle(mouse.x, canvas.height / 9 * 7, Math.random() * 2 - 1, Math.random() * -2 - 9, canvas.height);
             particles.push(particle);
 
             if (level.index === 'credits') {
@@ -169,7 +169,7 @@ function updateEnemies() {
 }
 
 function updateDick() {
-    ctx.drawImage(level.character, mouse.x - canvas.width / 16.5, canvas.height / 6 * 5, 200, 150);
+    ctx.drawImage(level.character, mouse.x - canvas.width / 11, canvas.height / 8 * 6, 300, 200);
 }
 
 function updateScore() {
