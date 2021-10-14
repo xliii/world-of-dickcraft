@@ -1,5 +1,5 @@
 class EnemyConfig {
-    constructor(index, sprites, width, height, hp, maxEnemies, spawnRate, maxSpeed = 1.75, minSpeed = 0.5) {
+    constructor(index, sprites, width, height, hp, maxEnemies, spawnRate, maxSpeed = 1.75, minSpeed = 0.5, hitbox = undefined) {
         this.index = index;
         this.width = width;
         this.height = height;
@@ -15,6 +15,12 @@ class EnemyConfig {
             let sprite = sprites[i];
             this.sprites.push(loadImage("sprites/level" + this.index + "/enemy/" + sprite + ".png"));
         }
+
+        if (hitbox === undefined) {
+            hitbox = new HitboxConfig('box', this.width, this.height)
+        }
+
+        this.hitbox = hitbox;
     }
 
     randomSprite() {

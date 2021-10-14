@@ -6,7 +6,8 @@ ctx.textAlign = "center";
 
 let levels = [
     new Level(1, "Vanilla", new EnemyConfig(
-        1, ['cloud1', 'cloud2', 'cloud3'], 250, 100, 100, 3, 0.01
+        1, ['cloud1', 'cloud2', 'cloud3'], 250, 100, 10000, 3, 0.01,
+        1.75, 0.5, new HitboxConfig("box", 200, 80)
     ), 10),
     new Level(2, "Burning Pissade", new EnemyConfig(
         2, ['cloud1'], 250, 100, 250, 3, 0.01, 1.5, 0.2
@@ -43,7 +44,7 @@ let particles = [];
 const maxParticles = 700;
 const gravity = 0.12;
 const color = "#ffff00";
-const DEBUG = false;
+const DEBUG = true;
 let enemies = [];
 
 let score = 0;
@@ -158,7 +159,7 @@ function updateEnemies() {
         if (enemy.update()) {
             enemies.splice(enemies.indexOf(enemy), 1);
         }
-        enemy.draw(ctx);
+        enemy.draw(ctx, DEBUG);
     }
 
     if (enemies.length < level.enemyConfig.maxEnemies) {

@@ -2,6 +2,7 @@ class Enemy {
     constructor(x, y, config, maxX, rotation) {
         this.width = config.width;
         this.height = config.height;
+        this.hitbox = config.hitbox;
         this.x = x;
         this.y = y;
         this.vx = config.minSpeed + (config.maxSpeed - config.minSpeed) * Math.random();
@@ -24,8 +25,7 @@ class Enemy {
         return this.x > this.maxX + 100 || this.x < -this.width - 100;
     }
 
-    draw(ctx) {
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    drawHp(ctx) {
         if (this.hp < this.maxHp) {
             let hpBarWidth = 50;
             let hpBarOffset = 50 * (this.hp / this.maxHp);
@@ -36,8 +36,25 @@ class Enemy {
         }
     }
 
+    draw(ctx, debug=false) {
+        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+        this.drawHp(ctx);
+
+        if (debug) {
+            this.hitbox.draw(ctx, this.centerX(), this.centerY());
+        }
+    }
+
+    centerX() {
+        return this.x + this.width / 2;
+    }
+
+    centerY() {
+        return this.y + this.height / 2;
+    }
+
     collides(x, y) {
-        return !(x < this.x || x > this.x + this.width) && !(y < this.y || y > this.y + this.height);
+        return this.hitbox.overlaps(this.centerX(), this.centerY(), x, y);
     }
 
     hit() {
