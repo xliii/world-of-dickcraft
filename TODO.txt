@@ -1,3 +1,14 @@
+------ENEMIES------
+* Vanilla: Clouds
+* TBC: Floating Islands
+* WotLK: Skulls
+* Cata: Dragons
+* TODO: Mists: Pandas
+* TODO: WoD: Orcs
+* TODO: Legion: Demon
+* TODO: BfA: Nyalotha Allseer
+* TODO: Shadowlands: Animite
+
 ------BOSSES-------
 * TODO: Vanilla: Wankaros
 * TODO: TBC: Illidan
@@ -14,3 +25,4 @@ MISC:
 * Prize also pisses in credits
 * Gear progression (Bfa- HoA, legendaries etc)
 * Wank vs Piss
+* Enemy configuration (size/hitbox/hp)
