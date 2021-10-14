@@ -10,28 +10,28 @@ let levels = [
     ), 10),
     new Level(2, "Burning Pissade", new EnemyConfig(
         2, ['cloud1'], 250, 100, 250, 3, 0.01, 1.5, 0.2
-    ), 10),
+    ), 10, 'character_leather'),
     new Level(3, "Wrath of the Piss King", new EnemyConfig(
         3, ['cloud1'], 100, 120, 150, 7, 0.01
-    ), 20),
+    ), 20, 'character_mail'),
     new Level(4, "PeePeeClysm", new EnemyConfig(
         4, ['cloud1'], 500, 200, 600, 2, 0.01
-    ), 5),
+    ), 5, 'character_plate'),
     new Level(5, "Mists of Pissdaria", new EnemyConfig(
         5, ['cloud1'], 300, 300, 450, 10, 0.01
-    ), 20),
+    ), 20, 'character_helmet'),
     new Level(6, "Warlords of Wankinor", new EnemyConfig(
         6, ['cloud1'], 350, 150, 300, 20, 0.1
-    ), 30),
+    ), 30, 'character_cloak'),
     new Level(7, "Jerkion", new EnemyConfig(
         7, ['cloud1'], 400, 300, 2000, 2, 0.01, 0.5, 0.4
-    ), 10),
+    ), 10, 'character_trinkets'),
     new Level(8, "Battle for Onanism", new EnemyConfig(
         8, ['cloud1'], 250, 250, 500, 10, 0.01
-    ), 50),
+    ), 50, 'character_hoa'),
     new Level(9, "Shadowanks", new EnemyConfig(
         9, ['cloud1'], 250, 100, 150, 70, 0.2, 3, 1
-    ), 100),
+    ), 100, 'character_domination'),
     new Level("credits", "Congratulations!", new EnemyConfig(
         '', [], 100, 100, 100, 0, 0
     ), 0)
