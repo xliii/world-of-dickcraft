@@ -17,7 +17,7 @@ class EnemyConfig {
         }
 
         if (hitbox === undefined) {
-            hitbox = new HitboxConfig('box', this.width, this.height)
+            hitbox = new HitboxConfig([new Hitbox('box', this.width, this.height)]);
         }
 
         this.hitbox = hitbox;

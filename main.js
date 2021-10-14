@@ -6,33 +6,90 @@ ctx.textAlign = "center";
 
 let levels = [
     new Level(1, "Vanilla", new EnemyConfig(
-        1, ['cloud1', 'cloud2', 'cloud3'], 250, 100, 10000, 3, 0.01,
-        1.75, 0.5, new HitboxConfig("box", 200, 80)
+        1, ['cloud1', 'cloud2', 'cloud3'], 250, 100, 100,
+        3, 0.01,   1.75, 0.5,
+        new HitboxConfig([
+            new Hitbox("box", 200, 80)
+        ])
     ), 10),
+
     new Level(2, "Burning Pissade", new EnemyConfig(
-        2, ['cloud1'], 250, 100, 250, 3, 0.01, 1.5, 0.2
+        2, ['cloud1'], 250, 100, 250,
+        3, 0.01, 1.5, 0.2,
+        new HitboxConfig([
+            new Hitbox("box", 230, 30, 0, -45),
+            new Hitbox("box", 180, 30, 0, -15),
+            new Hitbox("box", 100, 30, 0, 15)
+        ])
     ), 10, 'character_leather'),
+
     new Level(3, "Wrath of the Piss King", new EnemyConfig(
-        3, ['cloud1'], 100, 120, 150, 7, 0.01
+        3, ['cloud1'], 100, 120, 150,
+        7, 0.01, 1.75, 0.5,
+        new HitboxConfig([
+            new Hitbox("circle", 60, 120),
+            new Hitbox("circle", 100, 60, 0, -30)
+        ])
     ), 20, 'character_mail'),
+
     new Level(4, "PeePeeClysm", new EnemyConfig(
-        4, ['cloud1'], 500, 200, 600, 2, 0.01
+        4, ['cloud1'], 500, 200, 1000,
+        2, 0.01, 1.75, 0.5,
+        new HitboxConfig([
+            new Hitbox("circle", 150, 50, -70, 35),
+            new Hitbox("circle", 70, 50, 0, 0),
+            new Hitbox("circle", 60, 50, 30, -30),
+            new Hitbox("circle", 150, 30, 90, -50),
+            new Hitbox("circle", 70, 30, 190, -30),
+            new Hitbox("circle", 70, 30, 210, -10)
+        ])
     ), 5, 'character_plate'),
+
     new Level(5, "Mists of Pissdaria", new EnemyConfig(
-        5, ['cloud1'], 300, 300, 450, 10, 0.01
+        5, ['cloud1'], 300, 300, 450,
+        10, 0.01, 1.75, 0.5,
+        new HitboxConfig([
+            new Hitbox("circle", 180, 180, -10, -10)
+        ])
     ), 20, 'character_helmet'),
+
     new Level(6, "Warlords of Wankinor", new EnemyConfig(
-        6, ['cloud1'], 350, 150, 300, 20, 0.1
+        6, ['cloud1'], 350, 150, 300,
+        20, 0.1, 1.75, 0.5,
+        new HitboxConfig([
+            new Hitbox("circle", 120, 80, -15, -10)
+        ])
     ), 30, 'character_cloak'),
+
     new Level(7, "Jerkion", new EnemyConfig(
-        7, ['cloud1'], 400, 300, 2000, 2, 0.01, 0.5, 0.4
+        7, ['cloud1'], 400, 300, 2000,
+        2, 0.01, 0.5, 0.4,
+        new HitboxConfig([
+            new Hitbox("circle", 200, 150, 0, -50),
+            new Hitbox("box", 70, 100, -90, 100),
+            new Hitbox("box", 80, 100, 75, 100),
+            new Hitbox("circle", 80, 110, -140, -80),
+            new Hitbox("circle", 80, 110, 150, -100)
+        ])
     ), 10, 'character_trinkets'),
+
     new Level(8, "Battle for Onanism", new EnemyConfig(
-        8, ['cloud1'], 250, 250, 500, 10, 0.01
+        8, ['cloud1'], 250, 250, 500,
+        10, 0.01, 1.75, 0.5,
+        new HitboxConfig([
+            new Hitbox("circle", 250, 50, 0, -80)
+        ])
     ), 50, 'character_hoa'),
+
     new Level(9, "Shadowanks", new EnemyConfig(
-        9, ['cloud1'], 250, 100, 150, 70, 0.2, 3, 1
+        9, ['cloud1'], 250, 100, 150,
+        70, 0.2, 3, 1,
+        new HitboxConfig([
+            new Hitbox("circle", 50, 50, 0, -35),
+            new Hitbox("box", 200, 30, 0, -10)
+        ])
     ), 100, 'character_domination'),
+
     new Level("credits", "Congratulations!", new EnemyConfig(
         '', [], 100, 100, 100, 0, 0
     ), 0)
@@ -44,7 +101,7 @@ let particles = [];
 const maxParticles = 700;
 const gravity = 0.12;
 const color = "#ffff00";
-const DEBUG = true;
+const DEBUG = false;
 let enemies = [];
 
 let score = 0;

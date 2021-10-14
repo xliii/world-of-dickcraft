@@ -8,6 +8,3 @@
 * TODO: Legion: Argus
 * TODO: BfA: NZoth
 * TODO: Shadowlands: Sylvanas
-
-MISC:
-* Fix hitboxes
