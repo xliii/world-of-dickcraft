@@ -1,14 +1,3 @@
-------ENEMIES------
-* Vanilla: Clouds
-* TBC: Floating Islands
-* WotLK: Skulls
-* Cata: Dragons
-* TODO: Mists: Pandas
-* TODO: WoD: Orcs
-* TODO: Legion: Demon
-* TODO: BfA: Nyalotha Allseer
-* TODO: Shadowlands: Animite
-
 ------BOSSES-------
 * TODO: Vanilla: Wankaros
 * TODO: TBC: Illidan

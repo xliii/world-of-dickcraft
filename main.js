@@ -20,7 +20,7 @@ let levels = [
 let level = null;
 
 let particles = [];
-const maxParticles = 1000;
+const maxParticles = 700;
 const gravity = 0.12;
 const color = "#ffff00";
 const DEBUG = false;
