@@ -12,4 +12,4 @@
 
 MISC:
 * Gear progression (Bfa- HoA, legendaries etc)
-* Enemy configuration (size/hitbox/hp)
+* Fix hitboxes

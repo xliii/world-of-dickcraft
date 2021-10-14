@@ -1,11 +1,13 @@
 class Enemy {
-    constructor(x, y, vx, config, maxX) {
+    constructor(x, y, config, maxX, rotation) {
         this.width = config.width;
         this.height = config.height;
         this.x = x;
         this.y = y;
-        this.vx = vx;
-
+        this.vx = config.minSpeed + (config.maxSpeed - config.minSpeed) * Math.random();
+        if (!rotation) {
+            this.vx = -this.vx;
+        }
         this.maxX = maxX;
         this.img = config.randomSprite();
         this.maxHp = config.hp;
