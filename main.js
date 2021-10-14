@@ -176,7 +176,7 @@ function clearScreen() {
 
 function drawUI() {
     ctx.fillStyle = 'white';
-    ctx.font = '50px Arial';
+    ctx.font = '50px WoW';
     ctx.fillText(level.name, canvas.width / 2, 50);
     if (level.targetScore > 0) {
         ctx.fillText(score + "/" + level.targetScore, canvas.width / 2, 100);
