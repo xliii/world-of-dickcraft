@@ -1,22 +1,13 @@
 class Level {
-    constructor(index, name, enemies = [], targetScore = 4, maxEnemies = 2, enemyHp=100, character="character", spawnRate = 0.005) {
+    constructor(index, name, enemyConfig, targetScore = 4, character="character") {
         this.index = index;
         this.name = name;
 
         this.targetScore = targetScore;
-        this.maxEnemies = maxEnemies;
-        this.spawnRate = spawnRate;
+        this.enemyConfig = enemyConfig;
 
         this.character = loadImage("sprites/" + character + ".png");
         this.background = loadImage("sprites/level" + this.index + "/background.png");
-        this.enemies = [];
-        for (let i = 0; i < enemies.length; i++) {
-            let enemy = enemies[i];
-            this.enemies.push(loadImage("sprites/level" + this.index + "/enemy/" + enemy + ".png"));
-        }
-    }
 
-    randomEnemySprite() {
-        return this.enemies[Math.floor(Math.random() * this.enemies.length)];
     }
 }

@@ -1,14 +1,14 @@
 class Enemy {
-    constructor(x, y, vx, img, maxX) {
-        this.width = 250;
-        this.height = 100;
+    constructor(x, y, vx, config, maxX) {
+        this.width = config.width;
+        this.height = config.height;
         this.x = x;
         this.y = y;
         this.vx = vx;
 
         this.maxX = maxX;
-        this.img = img;
-        this.maxHp = 100;
+        this.img = config.randomSprite();
+        this.maxHp = config.hp;
         this.hp = this.maxHp;
     }
 

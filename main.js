@@ -5,16 +5,36 @@ canvas.height = 800;
 ctx.textAlign = "center";
 
 let levels = [
-    new Level(1, "Vanilla", ['cloud1', 'cloud2', 'cloud3'], 1),
-    new Level(2, "Burning Pissade", ['cloud1'], 1),
-    new Level(3, "Wrath of the Piss King", ['cloud1'], 1),
-    new Level(4, "PeePeeClysm", ['cloud1'], 1),
-    new Level(5, "Mists of Pissdaria", ['cloud1'], 1),
-    new Level(6, "Warlords of Wankinor", ['cloud1'], 1),
-    new Level(7, "Jerkion", ['cloud1'], 1),
-    new Level(8, "Battle for Onanism", ['cloud1'], 1),
-    new Level(9, "Shadowanks", ['cloud1'], 1),
-    new Level("credits", "Congratulations!", [], 0, 0)
+    new Level(1, "Vanilla", new EnemyConfig(
+        1, ['cloud1', 'cloud2', 'cloud3'], 250, 100, 100, 3, 0.01
+    ), 1),
+    new Level(2, "Burning Pissade", new EnemyConfig(
+        2, ['cloud1'], 250, 100, 100, 3, 0.01
+    ), 1),
+    new Level(3, "Wrath of the Piss King", new EnemyConfig(
+        3, ['cloud1'], 100, 120, 100, 3, 0.01
+    ), 1),
+    new Level(4, "PeePeeClysm", new EnemyConfig(
+        4, ['cloud1'], 500, 200, 100, 3, 0.01
+    ), 1),
+    new Level(5, "Mists of Pissdaria", new EnemyConfig(
+        5, ['cloud1'], 300, 300, 100, 3, 0.01
+    ), 1),
+    new Level(6, "Warlords of Wankinor", new EnemyConfig(
+        6, ['cloud1'], 350, 150, 100, 3, 0.01
+    ), 1),
+    new Level(7, "Jerkion", new EnemyConfig(
+        7, ['cloud1'], 400, 300, 100, 3, 0.01
+    ), 1),
+    new Level(8, "Battle for Onanism", new EnemyConfig(
+        8, ['cloud1'], 250, 250, 100, 3, 0.01
+    ), 1),
+    new Level(9, "Shadowanks", new EnemyConfig(
+        9, ['cloud1'], 250, 100, 100, 3, 0.01
+    ), 1),
+    new Level("credits", "Congratulations!", new EnemyConfig(
+        '', [], 100, 100, 100, 0, 0
+    ), 0)
 ];
 
 let level = null;
@@ -72,16 +92,20 @@ function loadImage(src) {
     let img = new Image();
     console.log("Load image:" + src);
     img.src = src;
-    //img.addEventListener("load", imageLoaded);
 
     return img;
 }
 
-function spawn(n = 1) {
+function shoot(n = 1) {
     for (let i = 0; i < n; i++) {
         if (particles.length < maxParticles) {
             let particle = new Particle(mouse.x, canvas.height / 7 * 6, Math.random() * 2 - 1, Math.random() * -2 - 9, canvas.height);
             particles.push(particle);
+
+            if (level.index === 'credits') {
+                let particle2 = new Particle(canvas.width / 2, canvas.height / 4, Math.random() * 2 - 1, Math.random() * -2 - 9, canvas.height);
+                particles.push(particle2);
+            }
         }
     }
 }
@@ -122,13 +146,12 @@ function updateParticles() {
 }
 
 function spawnEnemy() {
-    let model = level.randomEnemySprite();
     let left = Math.random() < 0.5;
     let y = Math.random() * canvas.height / 10 + canvas.height / 7;
     let x = left ? -200 : canvas.width;
     let v = Math.random() * 1.25 + 0.5;
     let vx = left ? v : -v;
-    enemies.push(new Enemy(x, y, vx, model, canvas.width));
+    enemies.push(new Enemy(x, y, vx, level.enemyConfig, canvas.width));
 }
 
 function updateEnemies() {
@@ -140,8 +163,8 @@ function updateEnemies() {
         enemy.draw(ctx);
     }
 
-    if (enemies.length < level.maxEnemies) {
-        if (Math.random() < level.spawnRate) {
+    if (enemies.length < level.enemyConfig.maxEnemies) {
+        if (Math.random() < level.enemyConfig.spawnRate) {
             spawnEnemy();
         }
     }
@@ -176,7 +199,7 @@ function animate() {
     clearScreen();
 
     if (mouse.pressed) {
-        spawn(6);
+        shoot(6);
     }
 
     updateScore();
