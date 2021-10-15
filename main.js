@@ -92,7 +92,7 @@ let levels = [
 
     new Level("credits", "Congratulations!", new EnemyConfig(
         '', [], 100, 100, 100, 0, 0
-    ), 0)
+    ), 0, 'character_domination')
 ];
 
 let level = null;
