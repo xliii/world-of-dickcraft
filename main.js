@@ -215,8 +215,14 @@ function updateEnemies() {
         let enemy = enemies[i];
         if (enemy.update()) {
             enemies.splice(enemies.indexOf(enemy), 1);
+        } else {
+            enemy.draw(ctx, DEBUG);
         }
-        enemy.draw(ctx, DEBUG);
+    }
+
+    for (let i = 0; i < enemies.length; i++) {
+        let enemy = enemies[i];
+        enemy.postDraw(ctx, DEBUG);
     }
 
     if (enemies.length < level.enemyConfig.maxEnemies) {

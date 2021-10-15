@@ -36,9 +36,12 @@ class Enemy {
         }
     }
 
+    postDraw(ctx, debug=false) {
+        this.drawHp(ctx);
+    }
+
     draw(ctx, debug=false) {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-        this.drawHp(ctx);
 
         if (debug) {
             this.hitbox.draw(ctx, this.centerX(), this.centerY());
